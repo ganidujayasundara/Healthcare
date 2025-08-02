@@ -158,7 +158,7 @@ public class VDoctors extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Full Name", "Registration Number", "Specialization", "Phone Number", "Email"
+                "Full Name", "Specialization", "Registration Number", "Phone Number", "Email"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

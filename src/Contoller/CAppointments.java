@@ -16,16 +16,6 @@ public class CAppointments {
             return false;
         }
 
-        if (!date.matches("\\d{4}/\\d{2}/\\d{2}")) {
-            showError("Please enter a valid date in the format YYYY/MM/DD!");
-            return false;
-        }
-
-        if (!time.matches("(1[0-2]|0[1-9]):([0-5][0-9]) (AM|PM)")) {
-            showError("Please enter a valid time in the format HH:MM AM/PM!");
-            return false;
-        }
-
         return true;
     }
 

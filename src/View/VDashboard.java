@@ -37,6 +37,7 @@ public class VDashboard extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btn_patient = new javax.swing.JButton();
@@ -97,6 +98,10 @@ public class VDashboard extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 133, -1, 128));
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        jButton1.setText("Report");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 200, 50));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 22)); // NOI18N
         jLabel1.setText("Navigation");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 279, -1, 27));
@@ -112,7 +117,7 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_patientActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 444, -1, -1));
+        getContentPane().add(btn_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 130, 40));
 
         btn_doctor.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn_doctor.setText("Doctors");
@@ -121,7 +126,7 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_doctorActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 444, -1, -1));
+        getContentPane().add(btn_doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 130, 40));
 
         btn_appointment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn_appointment.setText("Appointments");
@@ -130,7 +135,7 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_appointmentActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_appointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 444, -1, -1));
+        getContentPane().add(btn_appointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, 40));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BackGround/d.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -203,6 +208,7 @@ public class VDashboard extends javax.swing.JFrame {
     private javax.swing.JButton btn_appointment;
     private javax.swing.JButton btn_doctor;
     private javax.swing.JButton btn_patient;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -29,7 +29,7 @@ public class VPatients extends javax.swing.JFrame {
 
         while (rs.next()) {
             String fullName = rs.getString("full_name");
-            String phone = rs.getString("phone_number");
+            String phone = rs.getString("phone");
             String age = rs.getString("age");
             String address = rs.getString("address");
             String gender = rs.getString("gender");
@@ -240,7 +240,7 @@ public class VPatients extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Full Name", "Age", "Gender", "NIC", "Phone Number", "Address", "Email"
+                "Full Name", "Phone Number", "Age", "Address", "Gender", "Email", "NIC"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

@@ -28,7 +28,7 @@ public class VDoctors extends javax.swing.JFrame {
         while (rs.next()) {
             String fullName = rs.getString("full_name");
             String specialization = rs.getString("specialization");
-            String regNo = rs.getString("registration_number");
+            String regNo = rs.getString("reg_no");
             String phone = rs.getString("phone");
             String email = rs.getString("email");
 

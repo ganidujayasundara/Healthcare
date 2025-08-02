@@ -36,7 +36,7 @@ public class MPatients {
 
     // Save to database
     public void saveToDatabase() throws SQLException {
-        String insertSQL = "INSERT INTO patients (full_name, phone_number, age, address, gender, email, nic) VALUES ('"
+        String insertSQL = "INSERT INTO patients (full_name, phone, age, address, gender, email, nic) VALUES ('"
                 + fullName + "', '" + phone + "', '" + age + "', '" + address + "', '"
                 + gender + "', '" + email + "', '" + nic + "')";
         MySQL.execute(insertSQL);

@@ -224,7 +224,7 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="cmb_status" min="-2" pref="270" max="-2" attributes="0"/>
                                   <Component id="txt_time" min="-2" pref="270" max="-2" attributes="0"/>
-                                  <Component id="cmb_dname" alignment="1" min="-2" pref="270" max="-2" attributes="0"/>
+                                  <Component id="txt_dname" alignment="1" min="-2" pref="270" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
@@ -243,7 +243,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txt_pname" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmb_dname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_dname" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -395,35 +395,7 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmb_dname">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="19">
-                    <StringItem index="0" value="Dr. Ayesha Fernando&#x9;  -General Physician"/>
-                    <StringItem index="1" value=" "/>
-                    <StringItem index="2" value="Dr. Nuwan Perera&#x9;  -Pediatrician"/>
-                    <StringItem index="3" value=" "/>
-                    <StringItem index="4" value="Dr. Ishara Gunawardena&#x9;  -Gynecologist"/>
-                    <StringItem index="5" value=" "/>
-                    <StringItem index="6" value="Dr. Kamal Jayasinghe&#x9;  -Cardiologist"/>
-                    <StringItem index="7" value=" "/>
-                    <StringItem index="8" value="Dr. Malini Silva&#x9;  -Dermatologist"/>
-                    <StringItem index="9" value=" "/>
-                    <StringItem index="10" value="Dr. Suresh Wijeratne&#x9;  -Orthopedic Surgeon"/>
-                    <StringItem index="11" value=" "/>
-                    <StringItem index="12" value="Dr. Thilini Senanayake&#x9;  -ENT Specialist"/>
-                    <StringItem index="13" value=" "/>
-                    <StringItem index="14" value="Dr. Dinesh Abeywickrama&#x9;  -Neurologist"/>
-                    <StringItem index="15" value=" "/>
-                    <StringItem index="16" value="Dr. Chamari Dissanayake&#x9;  -Psychiatrist"/>
-                    <StringItem index="17" value=" "/>
-                    <StringItem index="18" value="Dr. Ruwan Gallage&#x9;  -Ophthalmologist"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
+            <Component class="javax.swing.JTextField" name="txt_dname">
             </Component>
           </SubComponents>
         </Container>

@@ -19,8 +19,8 @@ public class CAppointments {
             return false;
         }
 
-        if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
-            showError("Please enter a valid date in the format YYYY-MM-DD!");
+        if (!date.matches("\\d{4}/\\d{2}/\\d{2}")) {
+            showError("Please enter a valid date in the format YYYY/MM/DD!");
             return false;
         }
 

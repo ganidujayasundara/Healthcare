@@ -30,7 +30,7 @@ public class MDoctors {
 
     // Save to database
     public void saveToDatabase() throws SQLException {
-        String insertSQL = "INSERT INTO doctors (full_name, specialization, registration_number, phone, email) VALUES ('"
+        String insertSQL = "INSERT INTO doctors (full_name, specialization, reg_no, phone, email) VALUES ('"
                 + fullName + "', '" + specialization + "', '" + regNo + "', '" + phone + "', '" + email + "')";
         MySQL.execute(insertSQL);
     }

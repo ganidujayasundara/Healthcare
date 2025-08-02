@@ -14,25 +14,36 @@ import javax.swing.table.DefaultTableModel;
 
 public class VAppointments extends javax.swing.JFrame {
 
-    private void loadApponmentsData() {
+   private void loadAppointmentsData() {
     try {
-        String query = "SELECT full_name FROM doctors";
+        String query = "SELECT * FROM appointments";
         ResultSet rs = MySQL.executeQuery(query);
-        cmb_dname.removeAllItems(); // Clear existing items
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // Clear table
 
         while (rs.next()) {
-            cmb_dname.addItem(rs.getString("full_name"));
+            String patientName = rs.getString("patient_name");
+            String doctorName = rs.getString("doctor_name");
+            String appointmentDate = rs.getString("appointment_date");
+            String timeSlot = rs.getString("time_slot");
+            String notes = rs.getString("notes");
+            String status = rs.getString("status");
+
+            String[] rowData = { patientName, doctorName, appointmentDate, timeSlot, notes, status };
+            model.addRow(rowData);
         }
+
     } catch (SQLException e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(this, "Error loading doctor names: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Error loading appointments: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
 }
 
     
     public VAppointments() {
         initComponents();
-        loadApponmentsData();
+       loadAppointmentsData();
     }
 
     /**
@@ -65,7 +76,7 @@ public class VAppointments extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         cmb_status = new javax.swing.JComboBox<>();
-        cmb_dname = new javax.swing.JComboBox<>();
+        txt_dname = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,8 +177,6 @@ public class VAppointments extends javax.swing.JFrame {
 
         cmb_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending ", " ", "Confirmed ", " ", "Completed ", " ", "Cancelled ", " ", " ", " ", " " }));
 
-        cmb_dname.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dr. Ayesha Fernando\t  -General Physician", " ", "Dr. Nuwan Perera\t  -Pediatrician", " ", "Dr. Ishara Gunawardena\t  -Gynecologist", " ", "Dr. Kamal Jayasinghe\t  -Cardiologist", " ", "Dr. Malini Silva\t  -Dermatologist", " ", "Dr. Suresh Wijeratne\t  -Orthopedic Surgeon", " ", "Dr. Thilini Senanayake\t  -ENT Specialist", " ", "Dr. Dinesh Abeywickrama\t  -Neurologist", " ", "Dr. Chamari Dissanayake\t  -Psychiatrist", " ", "Dr. Ruwan Gallage\t  -Ophthalmologist" }));
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -209,7 +218,7 @@ public class VAppointments extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cmb_status, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_time, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmb_dname, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_dname, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(78, 78, 78))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -222,7 +231,7 @@ public class VAppointments extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_pname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmb_dname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_dname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
@@ -304,17 +313,18 @@ public class VAppointments extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        String patientName = txt_pname.getText();
-    Object doctorObj = cmb_dname.getSelectedItem();
-    String doctorName = doctorObj != null ? doctorObj.toString() : "";
+    String doctorName = txt_dname.getText().trim(); // ✅ Now using txt_dname
     String appointmentDate = txt_date.getText();
     String timeSlot = txt_time.getText();
     String notes = txt_note.getText();
+    
     Object statusObj = cmb_status.getSelectedItem();
     String status = statusObj != null ? statusObj.toString() : "";
 
     CAppointments controller = new CAppointments();
 
-    if (controller.validateInput(patientName, appointmentDate, timeSlot, notes, doctorObj, statusObj)) {
+    // ✅ Update validation to pass doctorName as a String, not doctorObj
+    if (controller.validateInput(patientName, doctorName, appointmentDate, timeSlot, notes, statusObj)) {
         MAppointments appointment = new MAppointments(patientName, doctorName, appointmentDate, timeSlot, notes, status);
 
         try {
@@ -323,7 +333,7 @@ public class VAppointments extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Appointment Added Successfully!");
 
             clearFields();
-            loadApponmentsData(); // Reload updated table
+            loadAppointmentsData(); // ✅ Use correct method name
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error saving appointment: " + e.getMessage(), "Error!", JOptionPane.ERROR_MESSAGE);
@@ -333,10 +343,10 @@ public class VAppointments extends javax.swing.JFrame {
 
     private void clearFields() {
     txt_pname.setText("");
+    txt_dname.setText(""); // ✅ Clear doctor name text field
     txt_date.setText("");
     txt_time.setText("");
     txt_note.setText("");
-    cmb_dname.setSelectedIndex(0);
     cmb_status.setSelectedIndex(0);
 }
 
@@ -374,7 +384,6 @@ public class VAppointments extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmb_dname;
     private javax.swing.JComboBox<String> cmb_status;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -393,6 +402,7 @@ public class VAppointments extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txt_date;
+    private javax.swing.JTextField txt_dname;
     private javax.swing.JTextArea txt_note;
     private javax.swing.JTextField txt_pname;
     private javax.swing.JTextField txt_time;

@@ -4,6 +4,13 @@
  */
 package View;
 
+import Model.MySQL;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+
 /**
  *
  * @author HP
@@ -43,6 +50,7 @@ public class VDashboard extends javax.swing.JFrame {
         btn_patient = new javax.swing.JButton();
         btn_doctor = new javax.swing.JButton();
         btn_appointment = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,9 +59,9 @@ public class VDashboard extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel2.setText("Dashboard");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 6, -1, 44));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setText("Welcome To City Hospital");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 44));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 820, 60));
 
@@ -69,7 +77,7 @@ public class VDashboard extends javax.swing.JFrame {
         jLabel10.setText("120");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 54, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 133, 249, 128));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 249, 128));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,7 +90,7 @@ public class VDashboard extends javax.swing.JFrame {
         jLabel11.setText("26");
         jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 133, 220, -1));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 220, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 204));
         jPanel5.setPreferredSize(new java.awt.Dimension(249, 50));
@@ -96,19 +104,26 @@ public class VDashboard extends javax.swing.JFrame {
         jLabel9.setText("50");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 52, -1, -1));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 133, -1, 128));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, 128));
 
+        jButton1.setBackground(new java.awt.Color(51, 51, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jButton1.setText("Report");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 200, 50));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 200, 70));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 22)); // NOI18N
         jLabel1.setText("Navigation");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 279, -1, 27));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, 27));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 2, 22)); // NOI18N
         jLabel6.setText("Quick States");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 88, -1, 27));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, 27));
 
         btn_patient.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn_patient.setText("Patients");
@@ -117,7 +132,7 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_patientActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 130, 40));
+        getContentPane().add(btn_patient, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 130, 40));
 
         btn_doctor.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn_doctor.setText("Doctors");
@@ -126,7 +141,7 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_doctorActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 130, 40));
+        getContentPane().add(btn_doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 130, 40));
 
         btn_appointment.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btn_appointment.setText("Appointments");
@@ -135,7 +150,11 @@ public class VDashboard extends javax.swing.JFrame {
                 btn_appointmentActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_appointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, -1, 40));
+        getContentPane().add(btn_appointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, -1, 40));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel8.setText("DashBoard");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BackGround/d.jpg"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -167,6 +186,21 @@ public class VDashboard extends javax.swing.JFrame {
         AppointmentFrame.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btn_appointmentActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try
+        {
+            String reportPath = "C:\\Users\\HP\\OneDrive\\Documents\\NetBeansProjects\\Healthcare N\\src\\View\\report1.jrxml";
+            JasperReport jr = JasperCompileManager.compileReport(reportPath);
+            JasperPrint jp = JasperFillManager.fillReport(jr, null, MySQL.getConnection());
+            JasperViewer.viewReport(jp);
+        }
+        catch( Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +252,7 @@ public class VDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -98,6 +98,7 @@ public class VPatients extends javax.swing.JFrame {
         jLabel2.setText("Full Name  ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 15, -1, -1));
 
+        btn_retrive.setBackground(new java.awt.Color(255, 51, 51));
         btn_retrive.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_retrive.setText("Retrive");
         btn_retrive.addActionListener(new java.awt.event.ActionListener() {
@@ -105,8 +106,9 @@ public class VPatients extends javax.swing.JFrame {
                 btn_retriveActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_retrive, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, -1, -1));
+        jPanel2.add(btn_retrive, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 240, -1, -1));
 
+        btn_save.setBackground(new java.awt.Color(102, 255, 102));
         btn_save.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_save.setText("Save");
         btn_save.addActionListener(new java.awt.event.ActionListener() {
@@ -184,14 +186,14 @@ public class VPatients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-            String fullName = txt_fname.getText();
-    String phone = txt_pno.getText();
-    String age = txt_age.getText();
-    String address = txt_address.getText();
-    Object genderObj = cmb_gender.getSelectedItem();
-    String gender = genderObj != null ? genderObj.toString() : "";
-    String email = txt_email.getText();
-    String nic = txt_nic.getText();
+        String fullName = txt_fname.getText();
+        String phone = txt_pno.getText();
+        String age = txt_age.getText();
+        String address = txt_address.getText();
+        Object genderObj = cmb_gender.getSelectedItem();
+        String gender = genderObj != null ? genderObj.toString() : "";
+        String email = txt_email.getText();
+        String nic = txt_nic.getText();
 
     CPatients controller = new CPatients();
 

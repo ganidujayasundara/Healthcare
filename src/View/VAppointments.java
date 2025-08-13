@@ -155,8 +155,9 @@ public class VAppointments extends javax.swing.JFrame {
         txt_note.setRows(5);
         jScrollPane2.setViewportView(txt_note);
 
-        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 270, -1));
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 270, 80));
 
+        jButton1.setBackground(new java.awt.Color(102, 255, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,8 +165,9 @@ public class VAppointments extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 219, -1, -1));
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Retrive");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -173,13 +175,13 @@ public class VAppointments extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 219, -1, -1));
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 210, -1, -1));
 
         cmb_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pending ", " ", "Confirmed ", " ", "Completed ", " ", "Cancelled ", " ", " ", " ", " " }));
         jPanel4.add(cmb_status, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 171, 270, -1));
         jPanel4.add(txt_dname, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 32, 270, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 86, 841, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 86, 841, 260));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/BackGround/a.jpeg"))); // NOI18N
         jLabel8.setText("jLabel8");

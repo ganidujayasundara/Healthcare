@@ -13,8 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-
-
 public class VDoctors extends javax.swing.JFrame {
 
     private void loadDoctorData() {
@@ -119,6 +117,7 @@ public class VDoctors extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 222, -1, -1));
         jPanel3.add(txt_regno, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 255, 264, -1));
 
+        btn_Retrive.setBackground(new java.awt.Color(255, 51, 51));
         btn_Retrive.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_Retrive.setText("Retrive");
         btn_Retrive.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +127,7 @@ public class VDoctors extends javax.swing.JFrame {
         });
         jPanel3.add(btn_Retrive, new org.netbeans.lib.awtextra.AbsoluteConstraints(706, 222, -1, -1));
 
+        btn_Save.setBackground(new java.awt.Color(102, 255, 102));
         btn_Save.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_Save.setText("Save");
         btn_Save.addActionListener(new java.awt.event.ActionListener() {

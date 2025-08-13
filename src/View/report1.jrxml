@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8957afa-42ff-4a43-97ef-63be28004550">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="132"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    p.full_name AS patient_name,
+    p.nic,
+    d.full_name AS doctor_name,
+    d.specialization,
+    a.date AS appointment_date
+FROM appointments a
+LEFT JOIN patients p ON a.patient_name = SUBSTRING_INDEX(p.full_name, ' ', 1)
+LEFT JOIN doctors d ON a.doctor_name = SUBSTRING_INDEX(d.full_name, ' ', 1);]]>
+	</queryString>
+	<field name="patient_name" class="java.lang.String"/>
+	<field name="nic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="doctor_name" class="java.lang.String"/>
+	<field name="specialization" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="appointment_date" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="77" y="18" width="405" height="30" uuid="a932cca3-9170-45ef-9510-5b0c5a635536"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Upcoming and Past Appointments Report]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="53" width="555" height="1" uuid="963df8e9-1db9-4cdf-8103-af3253875068"/>
+			</line>
+			<line>
+				<reportElement x="0" y="11" width="555" height="1" uuid="34ca3a05-6d18-4138-aba1-cbe73dd7cc32"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="11" width="128" height="30" uuid="c29c18fc-d67e-4ea3-aeae-48b1501bb8c9"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[City Hospital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="102" width="179" height="18" uuid="f5a65f7e-bf18-42a2-9460-8520c16e2bb9"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Tel : 0751234567 / 0779876543]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="31" width="100" height="20" uuid="902f231a-ec03-43b4-b4ef-c090bc9e3156"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[City Hospital,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="52" width="136" height="20" uuid="46b7e83d-d81b-4687-98ec-2ac1b5f9bf2f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[No. 458/B Hospital Road,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="74" width="100" height="20" uuid="9c8f5430-c151-416b-9be8-11f868d6ea3d"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Colombo 08.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="52" width="198" height="40" uuid="b857aa63-f3f0-4685-8a68-5fa85071af5c"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Patient Appointment Summary Report
+Generated on: 2025-08-02]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="10" width="77" height="20" uuid="00e6dbba-591f-4add-8973-ea75a4d67759"/>
+				<text><![CDATA[Patient Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="10" width="97" height="20" uuid="4b65cedf-677e-489a-8740-a04de9155cc1"/>
+				<text><![CDATA[NIC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="10" width="90" height="20" uuid="21cc93f4-ea73-48a0-8d85-8048d3456f0b"/>
+				<text><![CDATA[Doctor Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="10" width="93" height="20" uuid="f753c65c-dd04-4ca1-a454-495e2512c7c4"/>
+				<text><![CDATA[Specialization]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="10" width="111" height="20" uuid="e5608002-04ce-45c6-9605-647eec2aa490"/>
+				<text><![CDATA[Appointment Date]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="5" width="555" height="1" uuid="5b1b09b5-0c56-4ad4-9d48-90cf3856cabe"/>
+			</line>
+			<line>
+				<reportElement x="0" y="32" width="555" height="1" uuid="b413fa9b-ddaf-47ed-8dfc-6081ec795337"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="88" height="20" uuid="f3114fe2-eeb0-457b-9161-36cd5563fd81"/>
+				<textFieldExpression><![CDATA[$F{patient_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="14" width="97" height="20" uuid="f49b3612-74a1-486c-a29f-10ce1b0b0b1b"/>
+				<textFieldExpression><![CDATA[$F{nic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="14" width="90" height="20" uuid="2c8d7fb7-9e8c-4ccb-bb41-2dee73d8d615"/>
+				<textFieldExpression><![CDATA[$F{doctor_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="14" width="93" height="20" uuid="53a08dfe-3172-4cc0-b407-c5957223dcbb"/>
+				<textFieldExpression><![CDATA[$F{specialization}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="14" width="111" height="20" uuid="a16ed3e9-903b-40b3-a1ca-0e85af5e8642"/>
+				<textFieldExpression><![CDATA[$F{appointment_date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="38" width="555" height="1" uuid="ab797b8c-09db-4aa4-b007-003dbeb0827f"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="14" width="100" height="20" uuid="f15f8903-6ade-4539-9c90-8dca69b1e055"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Date: 2025-08-03]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="14" width="159" height="20" uuid="e992cdc2-daf1-4af7-a18e-e3e6be416def"/>
+				<text><![CDATA[Signature: _________________________
+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="439" y="26" width="100" height="1" uuid="b39c89b6-96cb-4009-ac81-265db3a72f0b"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="278" y="19" width="13" height="15" uuid="a39828ec-f9ed-4ac5-8bfb-8930bb3f597a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="145" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="14" width="144" height="20" uuid="1ed2cf46-79fd-4eac-80e7-3a90ad92b042"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Executive Summery]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="48" width="500" height="83" uuid="ff4dac18-ba9c-4fd0-a4c5-23ed0b8b7542"/>
+				<textElement>
+					<font size="12" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA["Every appointment tells a story — of care delivered, needs addressed, and healing in progress. This report not only reflects the dedication of our healthcare team in managing the past, but also our commitment to being prepared for the future. By reviewing what has been and planning what is to come, we ensure that no patient is overlooked, and no care is delayed."]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
